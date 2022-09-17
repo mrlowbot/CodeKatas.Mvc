@@ -1,7 +1,12 @@
+using CodeKatas.Database;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<KataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("GobmanCodeKatas")));
 
 var app = builder.Build();
 
