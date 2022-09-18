@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CodeKatas.Abstractions\CodeKatas.Abstractions.csproj" />
+    <ProjectReference Include="..\CodeKatas.Mvc\CodeKatas.Mvc.csproj" />
   </ItemGroup>
 
 </Project>

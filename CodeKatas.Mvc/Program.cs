@@ -1,5 +1,7 @@
+using CodeKatas.Abstractions.Services;
 using CodeKatas.Database;
 using Microsoft.EntityFrameworkCore;
+using CodeKatas.Implementations.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<KataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("GobmanCodeKatas")));
+
+builder.Services.AddScoped<IPersonService, PersonService>();
 
 var app = builder.Build();
 

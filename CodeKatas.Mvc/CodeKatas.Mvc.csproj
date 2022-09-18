@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CodeKatas.Abstractions\CodeKatas.Abstractions.csproj" />
     <ProjectReference Include="..\CodeKatas.Database\CodeKatas.Database.csproj" />
+    <ProjectReference Include="..\CodeKatas.Implementations\CodeKatas.Implementations.csproj" />
   </ItemGroup>
 
 </Project>

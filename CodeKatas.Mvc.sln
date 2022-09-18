@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeKatas.Mvc", "CodeKatas.Mvc\CodeKatas.Mvc.csproj", "{EE600C0A-2326-4D82-B360-4A4D63B86A49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeKatas.Mvc", "CodeKatas.Mvc\CodeKatas.Mvc.csproj", "{EE600C0A-2326-4D82-B360-4A4D63B86A49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeKatas.Database", "CodeKatas.Database\CodeKatas.Database.csproj", "{227A1568-7A71-4BFD-BF78-7D5C9EA8E57D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeKatas.Database", "CodeKatas.Database\CodeKatas.Database.csproj", "{227A1568-7A71-4BFD-BF78-7D5C9EA8E57D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeKatas.Abstractions", "CodeKatas.Abstractions\CodeKatas.Abstractions.csproj", "{81BDDF55-27AF-493B-BA7F-4AAC876971A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeKatas.Abstractions", "CodeKatas.Abstractions\CodeKatas.Abstractions.csproj", "{81BDDF55-27AF-493B-BA7F-4AAC876971A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeKatas.Implementation", "CodeKatas.Implementation\CodeKatas.Implementation.csproj", "{BC727382-0626-4EC8-9B9F-4FD484DA4998}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeKatas.Implementations", "CodeKatas.Implementations\CodeKatas.Implementations.csproj", "{D97F49F1-A14F-4B7D-A53A-6316C83C0A5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{81BDDF55-27AF-493B-BA7F-4AAC876971A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81BDDF55-27AF-493B-BA7F-4AAC876971A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BDDF55-27AF-493B-BA7F-4AAC876971A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC727382-0626-4EC8-9B9F-4FD484DA4998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC727382-0626-4EC8-9B9F-4FD484DA4998}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC727382-0626-4EC8-9B9F-4FD484DA4998}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC727382-0626-4EC8-9B9F-4FD484DA4998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D97F49F1-A14F-4B7D-A53A-6316C83C0A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97F49F1-A14F-4B7D-A53A-6316C83C0A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97F49F1-A14F-4B7D-A53A-6316C83C0A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97F49F1-A14F-4B7D-A53A-6316C83C0A5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

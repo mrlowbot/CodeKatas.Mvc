@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CodeKatas.Abstractions\CodeKatas.Abstractions.csproj" />
+    <ProjectReference Include="..\CodeKatas.Database\CodeKatas.Database.csproj" />
+  </ItemGroup>
+
 </Project>

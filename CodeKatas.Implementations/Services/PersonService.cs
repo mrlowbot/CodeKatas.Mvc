@@ -1,9 +1,8 @@
 ﻿using CodeKatas.Abstractions.Contracts;
 using CodeKatas.Abstractions.Services;
 using CodeKatas.Database;
-using CodeKatas.Mvc.Models;
 
-namespace CodeKatas.Implementation.Services
+namespace CodeKatas.Implementations.Services
 {
     public class PersonService : IPersonService
     {
@@ -12,7 +11,7 @@ namespace CodeKatas.Implementation.Services
         public PersonService(KataContext context)
         {
             _context = context;
-        }   
+        }
 
         public Guid Create(PersonCarrier carrier)
         {
@@ -66,3 +65,4 @@ namespace CodeKatas.Implementation.Services
         }
     }
 }
+
