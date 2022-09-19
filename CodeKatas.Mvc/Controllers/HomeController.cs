@@ -135,14 +135,12 @@ namespace CodeKatas.Mvc.Controllers
             }
         }
 
-        [Route("Person/Remove")]
         [HttpGet]
         public ActionResult RemoveAddress()
         {
             return View();
         }
 
-        [Route("Person/Remove")]
         [HttpPost]
         public ActionResult RemoveAddress(Guid addressId, Guid personId)
         {

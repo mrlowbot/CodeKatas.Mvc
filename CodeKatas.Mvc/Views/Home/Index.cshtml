@@ -8,12 +8,6 @@
 </div>
 <h1>@Model.IntroText</h1>
 
-@if (!string.IsNullOrEmpty(Model.Message))
-{
-    <div class="alert alert-dark" role="alert">
-        @Model.Message
-    </div>
-}
 
 @foreach (var personCarrier in Model.PersonList)
 {
@@ -26,16 +20,12 @@
                     for (var i = 0; i < personCarrier.Addresses.LongCount(); i++)
                     {
                         @Html.TextBox("Addresses[" + i + "].StreetAddress1", personCarrier.Addresses.ElementAt(i).StreetAddress1)
-
                         <br />
                         @Html.TextBox("Addresses[" + i + "].PostalCode", personCarrier.Addresses.ElementAt(i).PostalCode)
-
                         <br />
                         @Html.TextBox("Addresses[" + i + "].City", personCarrier.Addresses.ElementAt(i).City)
-
                         <br />
                         @Html.TextBox("Addresses[" + i + "].Country", personCarrier.Addresses.ElementAt(i).Country)
-
                         <br />
                         <br />
                     }

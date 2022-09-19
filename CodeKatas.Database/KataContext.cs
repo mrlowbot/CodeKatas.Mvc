@@ -22,6 +22,7 @@ namespace CodeKatas.Database
             modelBuilder.Entity<Person>().Property(p => p.LastName).HasColumnType("nvarchar").HasMaxLength(200);
             modelBuilder.Entity<Person>().Property(p => p.PhoneNumber).HasColumnType("nvarchar").HasMaxLength(15);
             modelBuilder.Entity<Person>().HasMany(p => p.Addresses).WithOne(a => a.Person);
+            modelBuilder.Entity<Person>().Navigation(p => p.Addresses).AutoInclude();
 
             modelBuilder.Entity<Address>().ToTable(nameof(Address));
             modelBuilder.Entity<Address>().HasKey(a => a.AddressId);
