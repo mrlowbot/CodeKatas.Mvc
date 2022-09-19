@@ -1,12 +1,11 @@
-﻿@{
+﻿@model CodeKatas.Mvc.Models.DefaultModel
+@{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="text-center">
     <h1 class="display-4">CRUD</h1>
     <p>CodeKatas</a>.</p>
 </div>
-
 <h1>@Model.IntroText</h1>
 
 @if (!string.IsNullOrEmpty(Model.Message))
@@ -22,19 +21,42 @@
         <div class="col">
             <address>
                 <strong>@personCarrier.FirstName @personCarrier.LastName</strong><br>
-                @if (personCarrier.Address != null)
+                @if (personCarrier.Addresses != null)
                 {
-                    @personCarrier.Address.StreetAddress1
+                    for (var i = 0; i < personCarrier.Addresses.LongCount(); i++)
+                    {
+                        @Html.TextBox("Addresses[" + i + "].StreetAddress1", personCarrier.Addresses.ElementAt(i).StreetAddress1)
 
-                    <br>
-                    @personCarrier.Address.PostalCode @personCarrier.Address.City
+                        <br />
+                        @Html.TextBox("Addresses[" + i + "].PostalCode", personCarrier.Addresses.ElementAt(i).PostalCode)
 
-                    <br>
+                        <br />
+                        @Html.TextBox("Addresses[" + i + "].City", personCarrier.Addresses.ElementAt(i).City)
+
+                        <br />
+                        @Html.TextBox("Addresses[" + i + "].Country", personCarrier.Addresses.ElementAt(i).Country)
+
+                        <br />
+                        <br />
+                    }
                 }
             </address>
         </div>
+        @Html.ActionLink("Edit", "Edit", new { personId = personCarrier.PersonId })
+        @Html.ActionLink("Delete", "Delete", new { personId = personCarrier.PersonId })
+        @if (string.IsNullOrEmpty(Model.Message))
+        {
+            Guid c = Guid.NewGuid();
+            @Html.ActionLink("Add Address", "AddAddress", new { personId = personCarrier.PersonId, AddressId = c })
+        }
+        @for (var i = 0; i < personCarrier.Addresses.Count(); i++)
+        {
+            @Html.ActionLink("Remove", "RemoveAddress", new { addressId = personCarrier.Addresses.ElementAt(i).AddressId, personId = personCarrier.PersonId }, null)
+            <br />
+        }
         <div class="col">
             <abbr title="Phone">P:</abbr> @personCarrier.PhoneNumber
         </div>
+        <br /><br /><br /><br />
     </div>
 }

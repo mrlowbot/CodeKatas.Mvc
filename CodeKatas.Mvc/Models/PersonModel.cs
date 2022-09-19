@@ -11,9 +11,6 @@ namespace CodeKatas.Mvc.Models
 
         public string? LastName { get; set; }
 
-        [Display(Name = "Phone Number")]
-        [Required(ErrorMessage = "Phone Number is required.")]
-        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Phone Number.")]
         public string? PhoneNumber { get; set; }
     }
 }

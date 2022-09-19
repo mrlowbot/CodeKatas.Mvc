@@ -10,7 +10,7 @@ namespace CodeKatas.Mvc.Models
 
         public string? ErrorMessage { get; set; }
 
-        public IList<PersonCarrier>? PersonList { get; set; }
+        public IList<PersonCarrier> PersonList { get; set; }
 
         //public IList<PersonCarrier> PersonList { get; set; }
     }

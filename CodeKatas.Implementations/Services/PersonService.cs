@@ -32,22 +32,42 @@ namespace CodeKatas.Implementations.Services
 
         public Guid CreateAddress(AddressCarrier carrier, Guid personId)
         {
-            throw new NotImplementedException();
+            var address = new Address
+            {
+                AddressId = Guid.NewGuid(),
+                StreetAddress1 = carrier.StreetAddress1,
+                StreetAddress2 = carrier.StreetAddress2,
+                PostalCode = carrier.PostalCode,
+                City = carrier.City,
+                Country = carrier.Country,
+                PersonId = personId,
+            };
+
+            _context.Addresses.Add(address);
+            _context.SaveChanges();
+
+            return (Guid)carrier.AddressId;
         }
 
         public void Delete(Guid personId)
         {
-            throw new NotImplementedException();
+            var person = _context.Persons.Find(personId);
+
+            _context.Persons.Remove(person);
+            _context.SaveChanges();
         }
 
         public void DeleteAddress(Guid addressId)
         {
-            throw new NotImplementedException();
+            var address = _context.Addresses.Find(addressId);
+
+            _context.Addresses.Remove(address);
+            _context.SaveChanges();
         }
 
         public PersonCarrier Get(Guid personId)
         {
-            throw new NotImplementedException();
+            return ProjectCarrierModel(_context.Persons.Find(personId));
         }
 
         public IList<PersonCarrier> GetAll()
@@ -64,7 +84,16 @@ namespace CodeKatas.Implementations.Services
 
         public void Update(PersonCarrier carrier)
         {
-            throw new NotImplementedException();
+            var person = new Person
+            {
+                PersonId = carrier.PersonId,
+                FirstName = carrier.FirstName,
+                LastName = carrier.LastName,
+                PhoneNumber = carrier.PhoneNumber
+            };
+
+            _context.Persons.Update(person);
+            _context.SaveChanges();
         }
 
         private PersonCarrier ProjectCarrierModel(Person person)
@@ -76,19 +105,19 @@ namespace CodeKatas.Implementations.Services
                 LastName = person.LastName,
                 PhoneNumber = person.PhoneNumber,
                 Addresses = person.Addresses != null
-                               ? person.Addresses
-                                       .Select(a => new AddressCarrier
-                                       {
-                                           AddressId = a.AddressId,
-                                           StreetAddress1 = a.StreetAddress1,
-                                           StreetAddress2 = a.StreetAddress2,
-                                           PostalCode = a.PostalCode,
-                                           City = a.City,
-                                           Country = a.Country
-                                       })
-                                       .ToArray()
-                               : Array.Empty<AddressCarrier>()
-            };
+                    ? person.Addresses
+                            .Select(a => new AddressCarrier
+                            {
+                                AddressId = a.AddressId,
+                                StreetAddress1 = a.StreetAddress1,
+                                StreetAddress2 = a.StreetAddress2,
+                                PostalCode = a.PostalCode,
+                                City = a.City,
+                                Country = a.Country
+                            })
+                            .ToArray()
+                    : Array.Empty<AddressCarrier>()
+             };
         }
     }
 }

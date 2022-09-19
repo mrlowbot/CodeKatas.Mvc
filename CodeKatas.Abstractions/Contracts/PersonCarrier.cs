@@ -4,14 +4,14 @@
     {
         public Guid PersonId { get; set; }
 
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; }
 
-        public string? LastName { get; set; }
+        public string LastName { get; set; }
 
-        public string? PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public AddressCarrier? Address { get; set; }
+        public AddressCarrier Address { get; set; }
 
-        public IEnumerable<AddressCarrier>? Addresses { get; set; }
+        public IEnumerable<AddressCarrier> Addresses { get; set; }
     }
 }
