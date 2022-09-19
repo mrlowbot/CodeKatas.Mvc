@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using CodeKatas.Abstractions.Contracts;
+using CodeKatas.Abstractions.Services;
 using CodeKatas.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,21 +8,51 @@ namespace CodeKatas.Mvc.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IPersonService _personService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IPersonService personService)
         {
-            _logger = logger;
+            _personService = personService;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult Index(string message = "")
         {
-            return View();
+            var model = new DefaultModel
+            {
+                IntroText = "",
+                PersonList = _personService.GetAll(),
+                Message = message
+                    
+            };
+ 
+            return View(model);
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(PersonCarrier personCarrirer)
+        {
+            try
+            {
+                _personService.Create(personCarrirer);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

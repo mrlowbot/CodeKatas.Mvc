@@ -4,9 +4,9 @@
     {
         public Guid AddressId { get; set; }
 
-        public Guid? PersonId { get; set; }
+        public Guid PersonId { get; set; }
 
-        public virtual Person? Person { get; set; }
+        public virtual Person Person { get; set; }
 
         public string? StreetAddress1 { get; set; }
 

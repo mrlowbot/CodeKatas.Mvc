@@ -2,6 +2,7 @@ using CodeKatas.Abstractions.Services;
 using CodeKatas.Database;
 using Microsoft.EntityFrameworkCore;
 using CodeKatas.Implementations.Services;
+using CodeKatas.Abstractions.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 

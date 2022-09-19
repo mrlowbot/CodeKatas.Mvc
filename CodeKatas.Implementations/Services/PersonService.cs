@@ -1,4 +1,5 @@
-﻿using CodeKatas.Abstractions.Contracts;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using CodeKatas.Abstractions.Contracts;
 using CodeKatas.Abstractions.Services;
 using CodeKatas.Database;
 
@@ -51,7 +52,9 @@ namespace CodeKatas.Implementations.Services
 
         public IList<PersonCarrier> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Persons
+                .Select(ProjectCarrierModel)
+                .ToList();
         }
 
         public void SetAddress(Guid personId, Guid addressId)
@@ -62,6 +65,30 @@ namespace CodeKatas.Implementations.Services
         public void Update(PersonCarrier carrier)
         {
             throw new NotImplementedException();
+        }
+
+        private PersonCarrier ProjectCarrierModel(Person person)
+        {
+            return new PersonCarrier
+            {
+                PersonId = (Guid)person.PersonId,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                PhoneNumber = person.PhoneNumber,
+                Addresses = person.Addresses != null
+                               ? person.Addresses
+                                       .Select(a => new AddressCarrier
+                                       {
+                                           AddressId = a.AddressId,
+                                           StreetAddress1 = a.StreetAddress1,
+                                           StreetAddress2 = a.StreetAddress2,
+                                           PostalCode = a.PostalCode,
+                                           City = a.City,
+                                           Country = a.Country
+                                       })
+                                       .ToArray()
+                               : Array.Empty<AddressCarrier>()
+            };
         }
     }
 }
