@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using CodeKatas.Abstractions.Contracts;
+﻿using CodeKatas.Abstractions.Contracts;
 using CodeKatas.Abstractions.Services;
 using CodeKatas.Database;
-using Microsoft.EntityFrameworkCore;
 
 namespace CodeKatas.Implementations.Services
 {

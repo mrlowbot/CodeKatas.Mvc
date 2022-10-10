@@ -12,6 +12,5 @@ namespace CodeKatas.Mvc.Models
 
         public IList<PersonCarrier> PersonList { get; set; }
 
-        //public IList<PersonCarrier> PersonList { get; set; }
     }
 }

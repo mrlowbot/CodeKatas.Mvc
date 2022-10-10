@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
-
-namespace CodeKatas.Mvc.Models
+﻿namespace CodeKatas.Mvc.Models
 {
     public class PersonModel
     {
